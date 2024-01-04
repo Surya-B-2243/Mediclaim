@@ -54,12 +54,12 @@
 }
 
 .btn {
-  background-color: #6a994e;
+  background-color: #31572c;
   color: #fff;
   border: none;
 }
 
 .btn:hover {
-  background-color: #31572c;
+  background-color: #6a994e;
   color: #fff;
 }
