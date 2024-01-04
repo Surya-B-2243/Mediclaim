@@ -1,48 +1,38 @@
-import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../public/topbar.css";
 
 const AppNavbar = () => {
   return (
-    <Navbar
-      bg="dark"
-      variant="dark"
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "1rem",
-      }}
-    >
-      <Navbar.Brand className="nav-brand">Mediclaim</Navbar.Brand>
-      <Nav>
-        <Link className="mr-2" to="/register">
-          <Button
-            variant="outline-light"
-            className="mr-2"
-            style={{ marginLeft: "5px" }}
-          >
-            Register
-          </Button>
+    <nav className="navbar">
+      <div>
+        <Link to="/" className="nav-link">
+          <h1>Mediclaim</h1>
         </Link>
-        <Link to="/login">
-          <Button
-            variant="outline-light"
-            className="mr-2"
-            style={{ marginLeft: "5px" }}
-          >
-            Login
-          </Button>
-        </Link>
-        <Link to="/">
-          <Button variant="outline-light" style={{ marginLeft: "5px" }}>
-            Home
-          </Button>
-        </Link>
-        <Link to="/Prompt">
-          <button className="search">AI Search</button>
-        </Link>
-      </Nav>
-    </Navbar>
+      </div>
+      <div className="nav-btn">
+        <div>
+          <Link to="/register">
+            <button className="btn">
+              <span>Register</span>
+            </button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/login">
+            <button className="btn">
+              <span>Login</span>
+            </button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/prompt">
+            <button className="btn" id="search">
+              <span>AI Search</span>
+            </button>
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 
