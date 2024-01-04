@@ -7,16 +7,15 @@ import AppNavbar from "./topbar";
 function Login() {
     const [email,setEmail] = useState()
     const [password,setPassword] = useState()
-    const [claimId,setclaimId] = useState("")
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post('http://localhost:3001/login', {email, password, claimId})
+      axios.post('http://localhost:3001/login', {email, password})
       .then(res => {
          if(res.data.Status === "Success"){
-          navigate('/dashboard')
+          navigate('/clientId')
          }
       }).catch(err => console.log(err))
     }
@@ -54,19 +53,7 @@ function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                           /> 
                     </div>
-                    <div className="mb-3">
-                          <label htmlFor="ClaimID">
-                            <strong>Claim ID</strong>
-                          </label>
-                         <input 
-                            type="text"
-                            placeholder="Enter Claim Id"
-                            autoComplete="off"
-                            name="ClaimId"
-                            className="form-control rounded-0"
-                            onChange={(e) => setclaimId(e.target.value)}
-                          /> 
-                    </div>
+                    
                     <div className="d-grid"><button type="submit" className="btn btn-dark w-100 rounded-0">Login</button></div>
                     
                 </form>
