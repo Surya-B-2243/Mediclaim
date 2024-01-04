@@ -1,0 +1,48 @@
+.footer-container {
+    height: 12rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 2rem;
+    color: #fff;
+    background-color: #31572c;
+}
+
+.footer-logo,
+.msg,
+.footer-links,
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo h2,
+.footer-logo p,
+.msg p,
+.contact h3,
+.contact p {
+    color: #fff;
+}
+
+.contact h3 {
+    font-size: 1.2rem;
+    margin: 5px;
+}
+
+.contact p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 5px;
+}
+
+.footer-links img {
+    height: 1.5rem;
+    aspect-ratio: 1;
+}
