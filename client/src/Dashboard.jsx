@@ -1,30 +1,31 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 function Dashboard() {
+    const {claim} = useParams()
     const[data, setData]=useState(null);
     const[patientdata, setpatientData]=useState(null);
     axios.defaults.withCredentials = false;
-    useEffect(()=>{
-        const fetchdata=async()=>{
+    
+  
+    useEffect( () =>{
+        const getData= async()=>{
             try{
-                const response = await axios.get('https://hapi.fhir.org/baseR4/Claim/49024');
-                setData(response.data);
-            }catch(error){
-                console.error('Error fetching data',error);
-            }
-            try{
-                const response = await axios.get('https://hapi.fhir.org/baseR4/Patient/49006');
-                setpatientData(response.data);
+                const claimData = await axios.get("https://hapi.fhir.org/baseR4/Claim/"+claim);
+                setData(claimData.data);
+                const pData = await axios.get("https://hapi.fhir.org/baseR4/"+claimData.data.patient.reference);
+                setpatientData(pData.data);
             }catch(error){
                 console.error('Error fetching data',error);
             }
         };
-        fetchdata();
-    },[]);
+        getData()
+    },[])
+    
     return(
-        <div>
+        <div>    
             {(data && patientdata &&
             <><h1>This data is from fhir test server</h1><ul>
                 <h2>Claim Details :</h2>
@@ -33,6 +34,12 @@ function Dashboard() {
                     </li>
                     <li>
                         Billable Period: {data.billablePeriod.start} to {data.billablePeriod.end}
+                    </li>
+                    <li>
+                        Provider  : {data.provider.display}
+                    </li>
+                    <li>
+                        Insurance Company : {data.insurance[0].coverage.display}
                     </li>
                     <li>
                         Total: {data.total.value} {data.total.currency}
@@ -48,7 +55,7 @@ function Dashboard() {
                         Birth Date : {patientdata.birthDate}
                     </li>
                     <li>
-                        Phone Number : {patientdata.telecom.value}
+                        Phone Number : {patientdata.telecom[0].value}
                     </li>
                     <li>
                         Type : {patientdata.telecom[0].use}
