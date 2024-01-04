@@ -1,4 +1,5 @@
 import AppNavbar from "./topbar";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import "../public/home.css";
 
@@ -53,6 +54,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
