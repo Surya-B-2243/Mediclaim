@@ -1,5 +1,16 @@
+html{
+
+  overflow-x: hidden;
+  scroll-padding-top: 3rem;
+  scroll-behavior: smooth;
+}
+
+body{
+  overflow-x: hidden;
+}
+
 .hero {
-  position: relative;
+  position:relative
 }
 
 .hero-text {
@@ -24,7 +35,8 @@
 
 .hero-img img {
   width: 100%;
-  height: auto;
+  position: relative;
+  height: 70%;
   z-index: -5;
 }
 
@@ -32,6 +44,7 @@
 
 .container {
   display: flex;
+  position: relative;
   padding: 2rem;
   gap: 2rem;
 }
