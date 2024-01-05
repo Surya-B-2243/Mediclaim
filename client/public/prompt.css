@@ -8,15 +8,20 @@
 }
 
 .body {
-  background-color: #e7ecef;
-  height: 100vh;
+  background-color: #e7efe8;
+  height: 45rem;
 }
 
-.nav {
+.prompt-heading {
   justify-content: center;
   padding: 2rem 0;
-  color: #e7ecef;
-  background-color: #212529;
+}
+
+.prompt-heading h2 {
+  color: #31572c;
+  font-size: 1.8rem;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .main {
@@ -34,14 +39,15 @@
   align-items: center;
 }
 
-h2 {
-  color: #274c77;
+.input h3,
+.output h3 {
+  color: #31572c;
+  font-size: 1.5rem;
 }
-h1{
-  align-content: center;
-}
+
 textarea {
   border-radius: 10px;
+  border-color: #31572c;
   padding: 1rem;
 }
 
@@ -50,7 +56,10 @@ button {
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-weight: 500;
-  background-color: #0d3b66;
+  background-color: #31572c;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #6a994e;
 }
